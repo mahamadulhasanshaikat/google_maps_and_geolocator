@@ -19,7 +19,7 @@ class LocationViewModel extends ChangeNotifier {
   final List<LatLng> routePoints = [];
 
   // Directions API এর জন্য API Key
-  final String googleApiKey = 'AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao';
+  final String googleApiKey = 'AIzaSyDUqGem_JcBtXArUpQl5tT7bA7JCCmT_mA';
 
   //"AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao";
 
