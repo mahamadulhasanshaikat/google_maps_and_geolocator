@@ -4,6 +4,7 @@ import 'viewmodel/location_view_model.dart';
 import 'views/location_tracker_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [

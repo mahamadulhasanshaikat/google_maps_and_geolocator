@@ -18,7 +18,6 @@ class LocationTrackerView extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
         elevation: 4,
-        shadowColor: Colors.black38,
       ),
       body: Consumer<LocationViewModel>(
         builder: (context, viewModel, child) {
@@ -27,16 +26,13 @@ class LocationTrackerView extends StatelessWidget {
               GoogleMap(
                 initialCameraPosition: viewModel.initialPosition,
                 onMapCreated: viewModel.onMapCreated,
-                onTap: viewModel.onMapTapped, 
                 padding: const EdgeInsets.only(bottom: 90, right: 10), 
                 
-                markers: {
-                  if (viewModel.currentMarker != null) viewModel.currentMarker!,
-                  if (viewModel.destinationMarker != null) viewModel.destinationMarker!,
-                },
+                markers: viewModel.currentMarker != null 
+                    ? {viewModel.currentMarker!} 
+                    : {},
                 
                 polylines: {
-                  // রিয়েল-টাইম লোকেশন ট্র্যাকিং লাইন (নীল)
                   Polyline(
                     polylineId: const PolylineId('tracking_route'),
                     color: Colors.blueAccent,
@@ -44,15 +40,6 @@ class LocationTrackerView extends StatelessWidget {
                     points: viewModel.polylinePoints,
                     jointType: JointType.round,
                   ),
-                  // গন্তব্যের রাস্তা দেখানোর লাইন (লাল ড্যাশ লাইন)
-                  if (viewModel.routePoints.isNotEmpty)
-                    Polyline(
-                      polylineId: const PolylineId('destination_route'),
-                      color: Colors.redAccent,
-                      width: 4,
-                      points: viewModel.routePoints,
-                      patterns: [PatternItem.dash(20), PatternItem.gap(10)],
-                    ),
                 },
                 myLocationEnabled: false,
                 myLocationButtonEnabled: false,
