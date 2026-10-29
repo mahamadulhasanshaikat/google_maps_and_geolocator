@@ -21,8 +21,6 @@ class LocationViewModel extends ChangeNotifier {
   // Directions API এর জন্য API Key
   final String googleApiKey = 'AIzaSyDUqGem_JcBtXArUpQl5tT7bA7JCCmT_mA';
 
-  //"AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao";
-
   final CameraPosition initialPosition = const CameraPosition(
     target: LatLng(23.7216771, 90.4165835),
     zoom: 16.0,
